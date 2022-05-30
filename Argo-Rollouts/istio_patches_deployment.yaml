@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: rollouts-controller
+    app.kubernetes.io/name: argo-rollouts
+    app.kubernetes.io/part-of: argo-rollouts
+    app: argo-rollouts
+    version: v1.2.1
+  name: argo-rollouts
+spec:
+  template:
+    metadata:
+      labels:
+        app: argo-rollouts
+        version: v1.2.1
