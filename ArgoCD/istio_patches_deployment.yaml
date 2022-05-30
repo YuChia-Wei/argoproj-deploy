@@ -42,7 +42,7 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
         app: argocd-notifications-controller
-        version: v2.3.3
+        version: v2.3.4
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -69,14 +69,14 @@ metadata:
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/part-of: argocd
     app: argocd-repo-server
-    version: v2.3.3
+    version: v2.3.4
   name: argocd-repo-server
 spec:
   template:
     metadata:
       labels:
         app: argocd-repo-server
-        version: v2.3.3
+        version: v2.3.4
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -86,14 +86,14 @@ metadata:
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
     app: argocd-server
-    version: v2.3.3
+    version: v2.3.4
   name: argocd-server
 spec:
   template:
     metadata:
       labels:
         app: argocd-server
-        version: v2.3.3
+        version: v2.3.4
     spec:
       containers:
       - name: argocd-server
