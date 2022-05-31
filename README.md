@@ -16,7 +16,7 @@
     |檔案|說明|
     |--|--|
     |[Kustomiztion.yaml](./ArgoCD/kustomization.yaml)|kustomiztion 定義檔|
-    |[install-2.3.3.yaml](./ArgoCD/install-2.3.3.yaml)|argocd 官方 2.3.3 版本安裝檔|
+    |[install-2.3.4.yaml](./ArgoCD/install-2.3.4.yaml)|argocd 官方 2.3.4 版本安裝檔|
     |[VirtualService.yaml](./ArgoCD/VirtualService.yaml)|Istio 所需的 VirtualService 服務安裝檔|
     |[Gateway.yaml](./ArgoCD/Gateway.yaml)|Istio 所需的 Gateway 服務安裝檔 **(不是 IngressGateway)**|
     |[istio_patches_deployment.yaml](./ArgoCD/istio_patches_deployment.yaml)| argocd 官方版本安裝檔的覆蓋參數，增加 Istio 所需的 Label 定義 |
@@ -28,7 +28,7 @@
 1. download install yaml (option)
     * 指定版本
         ```bash=
-         curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.3/manifests/install.yaml -o install-2.3.3.yaml
+         curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml -o install-2.3.4.yaml
         ```
     * 最新版本
         ```bash=
