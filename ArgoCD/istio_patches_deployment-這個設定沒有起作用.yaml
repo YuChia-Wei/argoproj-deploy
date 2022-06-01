@@ -1,0 +1,121 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: argocd-applicationset-controller
+    app.kubernetes.io/part-of: argocd-applicationset
+    app: argocd-applicationset-controller
+    version: v0.4.1
+  name: argocd-applicationset-controller
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-applicationset-controller
+        version: v0.4.1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: dex-server
+    app.kubernetes.io/name: argocd-dex-server
+    app.kubernetes.io/part-of: argocd
+    app: argocd-dex-server
+    version: v2.30.2
+  name: argocd-dex-server
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "5558"
+      labels:
+        app: argocd-dex-server
+        version: v2.30.2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-notifications-controller
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "9001"
+      labels:
+        app.kubernetes.io/name: argocd-notifications-controller
+        app: argocd-notifications-controller
+        version: v2.3.4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/name: argocd-redis
+    app.kubernetes.io/part-of: argocd
+    app: argocd-redis
+    version: v6.2.6
+  name: argocd-redis
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-redis
+        version: v6.2.6
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: repo-server
+    app.kubernetes.io/name: argocd-repo-server
+    app.kubernetes.io/part-of: argocd
+    app: argocd-repo-server
+    version: v2.3.4
+  name: argocd-repo-server
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8084"
+      labels:
+        app: argocd-repo-server
+        version: v2.3.4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+    app: argocd-server
+    version: v2.3.4
+  name: argocd-server
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8083"
+      labels:
+        app: argocd-server
+        version: v2.3.4
+    spec:
+      containers:
+      - name: argocd-server
+        command:
+        - argocd-server
+        - --staticassets
+        - /shared/app
+        - --insecure
+
