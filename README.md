@@ -71,3 +71,10 @@
 ```
 kubectl apply -k ./
 ```
+
+### link to prometheus
+
+從 Argo-Rollout 的經驗來看，應該要設定在 deployment 上面，但是不知道什麼原因，測試時使用了設定到 service 的方法才成功
+
+[設定到 deployment 設定的方法](https://newrelic.com/instant-observability/argocd-quickstart/03b4a3b9-3a59-4603-91dd-6b0ced1d62de)
+[設定到 service 設定的方法](https://www.gushiciku.cn/pl/g7Ok/zh-tw)
