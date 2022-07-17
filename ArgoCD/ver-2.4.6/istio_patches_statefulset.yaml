@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/name: argocd-application-controller
+    app.kubernetes.io/part-of: argocd
+    app: argocd-application-controller
+    version: v2.3.4
+  name: argocd-application-controller
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-application-controller
+        version: v2.3.4
