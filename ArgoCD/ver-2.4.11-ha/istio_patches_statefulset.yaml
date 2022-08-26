@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/name: argocd-application-controller
+    app.kubernetes.io/part-of: argocd
+    app: argocd-application-controller
+    version: v2.4.11
+  name: argocd-application-controller
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-application-controller
+        version: v2.4.11
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/name: argocd-redis-ha
+    app.kubernetes.io/part-of: argocd
+    app: argocd-redis-ha-server
+    version: v7.0.4
+  name: argocd-redis-ha-server
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-redis-ha
+        version: v7.0.4
