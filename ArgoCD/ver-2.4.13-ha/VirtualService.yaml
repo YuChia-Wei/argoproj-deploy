@@ -1,0 +1,48 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: argocd-vs
+  namespace: argocd
+spec:
+  gateways:
+    - argocd-gateway
+  hosts:
+    - argocd.selfsite.com
+  http:
+    - headers:
+        request:
+          set:
+            x-forwarded-proto: https
+      match:
+        - uri:
+            prefix: /argocd-server-metrics/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: argocd-server-metrics.argocd.svc.cluster.local
+            port:
+              number: 8083
+    - headers:
+        request:
+          set:
+            x-forwarded-proto: https
+      match:
+        - uri:
+            prefix: /argocd-metrics/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: argocd-metrics.argocd.svc.cluster.local
+            port:
+              number: 8082
+    - headers:
+        request:
+          set:
+            x-forwarded-proto: https
+      route:
+        - destination:
+            host: argocd-server.argocd.svc.cluster.local
+            port:
+              number: 80
