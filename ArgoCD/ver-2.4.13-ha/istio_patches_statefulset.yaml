@@ -26,6 +26,7 @@ metadata:
     version: v7.0.4
   name: argocd-redis-ha-server
 spec:
+  replicas: 2
   template:
     metadata:
       labels:
