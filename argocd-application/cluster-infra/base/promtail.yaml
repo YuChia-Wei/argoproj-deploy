@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: promtail
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: kube-monitor
+  source:
+    repoURL: 'https://grafana.github.io/helm-charts'
+    targetRevision: 6.4.0
+    chart: promtail
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: 'config.clients[0].url'
+          value: 'http://loki:3100/loki/api/v1/push'
+      values: |-
+        extraVolumes:
+          - name: docker-containers
+            hostPath:
+              path: /data/docker/containers
+        extraVolumeMounts:
+          - name: docker-containers
+            mountPath: /data/docker/containers
+            readOnly: true
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+  revisionHistoryLimit: 3
