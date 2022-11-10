@@ -5,11 +5,11 @@ resources:
   - install-ha.yaml
   - VirtualService.yaml
   - Gateway.yaml
-  - default-argocd-resource/app-argocd-core.yaml
-  - default-argocd-resource/repo-argocd.yaml
-  - default-argocd-resource/repo-grafana-helm-charts.yaml
-  - default-argocd-resource/repo-kedacore-helm-charts.yaml
-  - default-argocd-resource/repo-prometheus-community-helm-charts.yaml
+  - default-argocd-resource/
+  # - ./default-argocd-resource/app-argocd-core.yaml
+  # - ./default-argocd-resource/repo-grafana-helm-charts.yaml
+  # - ./default-argocd-resource/repo-kedacore-helm-charts.yaml
+  # - ./default-argocd-resource/repo-prometheus-community-helm-charts.yaml
 patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml
