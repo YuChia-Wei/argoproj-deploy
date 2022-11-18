@@ -12,18 +12,7 @@
 此定義檔主要增加 Kubernetes 的 Label 設定 (app, version)，讓 Istio 可正常存取
 為了方便以後的更新，有特別將各種不同類型的 patch 設定檔切割出來
 
-* 安裝檔案說明
-    |檔案|說明|
-    |--|--|
-    |[Kustomiztion.yaml](./ArgoCD/kustomization.yaml)|kustomiztion 定義檔|
-    |[install-2.3.4.yaml](./ArgoCD/install-2.3.4.yaml)|argocd 官方 2.3.4 版本安裝檔|
-    |[VirtualService.yaml](./ArgoCD/VirtualService.yaml)|Istio 所需的 VirtualService 服務安裝檔|
-    |[Gateway.yaml](./ArgoCD/Gateway.yaml)|Istio 所需的 Gateway 服務安裝檔 **(不是 IngressGateway)**|
-    |[istio_patches_deployment.yaml](./ArgoCD/istio_patches_deployment.yaml)| argocd 官方版本安裝檔的覆蓋參數，增加 Istio 所需的 Label 定義 |
-    |[istio_patches_service.yaml](./ArgoCD/istio_patches_service.yaml)| argocd 官方版本安裝檔的覆蓋參數，增加 Istio 所需的 Label 定義 |
-    |[istio_patches_statefulset.yaml](./ArgoCD/istio_patches_statefulset.yaml)| argocd 官方版本安裝檔的覆蓋參數，增加 Istio 所需的 Label 定義 |
-
-### 安裝檔準備
+### 安裝檔更新
 
 1. download install yaml (option)
     * 指定版本

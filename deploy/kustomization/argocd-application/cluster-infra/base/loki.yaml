@@ -11,11 +11,16 @@ spec:
     namespace: kube-monitor
   source:
     repoURL: 'https://grafana.github.io/helm-charts'
-    targetRevision: 2.14.1
+    targetRevision: 2.16.0
     chart: loki
     helm:
       valueFiles:
         - values.yaml
+      values: |-
+        podAnnotations:
+          prometheus.io/scrape: "true"
+          prometheus.io/port: "http-metrics"
+          prometheus.io/path: "/metrics"
   project: default
   syncPolicy:
     syncOptions:

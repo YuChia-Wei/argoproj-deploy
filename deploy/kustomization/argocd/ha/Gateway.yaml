@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   selector:
-    istio: argocd-ingressgateway
+    istio: ingressgateway
   servers:
     - hosts:
-        - argocd.selfsite.com
+        - argocd.mydomain.org
       port:
         name: http
         number: 8080

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-stage
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+type: Opaque
+stringData:
+  name: Stage
+  server: https://rancher.mydomain.org/k8s/clusters/{cluster-id}
+  config: |
+    {
+      "bearerToken": "",
+      "tlsClientConfig": {
+        "insecure": false
+      }
+    }

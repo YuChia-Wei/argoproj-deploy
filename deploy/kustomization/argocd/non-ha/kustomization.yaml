@@ -5,7 +5,7 @@ resources:
   - install.yaml
   - VirtualService.yaml
   - Gateway.yaml
-  - default-argocd-resource/
+  - system-settings/
 patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml

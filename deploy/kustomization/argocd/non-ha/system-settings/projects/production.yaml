@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: production
+  namespace: argocd
+spec:
+  description: 正式環境
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - name: Production
+      namespace: '*'
+      server: https://rancher.mydomain.org/k8s/clusters/{cluster-id}
+  sourceRepos:
+    - '*'

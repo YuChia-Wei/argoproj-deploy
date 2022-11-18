@@ -8,7 +8,7 @@ spec:
     istio: argocd-ingressgateway
   servers:
     - hosts:
-        - argocd.selfsite.com
+        - argocd.mydomain.org
       port:
         name: http
         number: 8080

@@ -15,6 +15,13 @@ spec:
     helm:
       valueFiles:
         - values.yaml
+      values: |-
+        prometheus:
+          metricServer:
+            enabled: true
+            port: 9022
+            portName: http-metrics
+            path: /metrics
     chart: keda
   project: default
   syncPolicy:
