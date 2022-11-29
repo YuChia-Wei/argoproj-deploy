@@ -6,3 +6,4 @@ resources:
   # - app-cluster-infra-production.yaml
   # - app-cluster-infra-stage.yaml
   # - app-cluster-infra-test.yaml
+  - app-cluster-infra-inner-cluster.yaml
