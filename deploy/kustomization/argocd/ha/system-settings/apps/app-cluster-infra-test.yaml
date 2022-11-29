@@ -12,8 +12,8 @@ spec:
   source:
     path: deploy/kustomization/argocd-application/cluster-infra/env-test
     repoURL: >-
-      https://github.com/YuChia-Wei/argo-proj-kustomization-with-istio
-    targetRevision: master
+      https://github.com/YuChia-Wei/argoproj-deploy
+    targetRevision: main
   project: default
   syncPolicy:
     syncOptions:

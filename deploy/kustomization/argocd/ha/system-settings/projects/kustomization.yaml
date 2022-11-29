@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: argocd
 resources:
   - cluster-infra.yaml
-  - production.yaml
-  - stage.yaml
-  - test.yaml
+  # - production.yaml
+  # - stage.yaml
+  # - test.yaml

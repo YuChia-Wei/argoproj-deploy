@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: argocd
 resources:
   - apps/
-  - clusters/
+  # - clusters/
   - projects/
   - repos/
