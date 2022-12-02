@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cache
+  namespace: argocd
+  name: redis-cluster
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: cache
+  source:
+    repoURL: 'https://ot-container-kit.github.io/helm-charts/'
+    targetRevision: 0.12.2
+    chart: redis-cluster
+    helm:
+      releaseName: redis-cluster
+      valueFiles:
+        - values.yaml
+      values: |-
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  revisionHistoryLimit: 3

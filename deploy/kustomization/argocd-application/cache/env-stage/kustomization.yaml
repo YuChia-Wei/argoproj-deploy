@@ -7,4 +7,4 @@ patches:
 - path: env-patch.yaml
   target:
     kind: Application
-nameSuffix: -inner-cluster
+nameSuffix: -stage

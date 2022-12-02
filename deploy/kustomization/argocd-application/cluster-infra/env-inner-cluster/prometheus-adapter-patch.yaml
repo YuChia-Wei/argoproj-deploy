@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/source/helm/parameters/0/value
-  value: 'http://prometheus-production-server.kube-monitor.svc.cluster.local'

@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name: 'in-cluster'
-    namespace: kube-monitor
+    namespace: keda
   source:
     repoURL: 'https://kedacore.github.io/charts'
     targetRevision: 2.8.2
