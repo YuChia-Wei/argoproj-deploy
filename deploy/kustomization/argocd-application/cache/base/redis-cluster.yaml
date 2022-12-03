@@ -17,11 +17,11 @@ spec:
       releaseName: redis-cluster
       valueFiles:
         - values.yaml
-      values: |-
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: longhorn
+      # values: |-
+      #   storageSpec:
+      #     volumeClaimTemplate:
+      #       spec:
+      #         storageClassName: longhorn
   project: default
   syncPolicy:
     syncOptions:
