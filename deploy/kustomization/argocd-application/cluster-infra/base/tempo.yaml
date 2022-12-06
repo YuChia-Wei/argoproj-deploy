@@ -26,6 +26,22 @@ spec:
           value: 'true'
         - name: traces.otlp.http.enabled
           value: 'true'
+        - name: traces.zipkin.enabled
+          value: 'true'
+        - name: minio.enabled
+          value: 'false'
+        - name: storage.trace.backend
+          value: 's3'
+        - name: storage.trace.s3.bucket
+          value: 'tempo-traces'
+        - name: storage.trace.s3.endpoint
+          value: 'tempo-minio:9000'
+        - name: storage.trace.s3.access_key
+          value: 'tempo-minio.accesskey'
+        - name: storage.trace.s3.secret_key
+          value: 'tempo-minio.secretkey'
+        - name: storage.trace.s3.insecure
+          value: 'true'
   project: default
   syncPolicy:
     syncOptions:

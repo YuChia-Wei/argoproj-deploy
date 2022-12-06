@@ -4,21 +4,23 @@ metadata:
   labels:
     type: cluster-infra
   namespace: argocd
-  name: promtail
+  name: minio
 spec:
   destination:
     name: 'in-cluster'
     namespace: kube-monitor
   source:
-    repoURL: 'https://grafana.github.io/helm-charts'
-    targetRevision: 6.4.0
-    chart: promtail
+    repoURL: 'https://charts.min.io/'
+    targetRevision: 5.0.1
+    chart: minio
     helm:
+      parameters:
+        - name: persistence.size
+          value: 5Gi
+        - name: resources.requests.memory
+          value: 256Mi
       valueFiles:
         - values.yaml
-      parameters:
-        - name: 'config.clients[0].url'
-          value: 'http://loki.kube-monitor.svc.cluster.local:3100/loki/api/v1/push'
   project: default
   syncPolicy:
     syncOptions:
