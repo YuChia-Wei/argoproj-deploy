@@ -6,15 +6,16 @@ metadata:
     app.kubernetes.io/name: argocd-application-controller
     app.kubernetes.io/part-of: argocd
     app: argocd-application-controller
-    version: v2.5.1
+    version: v2.5.4
   name: argocd-application-controller
 spec:
   revisionHistoryLimit: 3
+  replicas: 3
   template:
     metadata:
       labels:
         app: argocd-application-controller
-        version: v2.5.1
+        version: v2.5.4
 ---
 apiVersion: apps/v1
 kind: StatefulSet
