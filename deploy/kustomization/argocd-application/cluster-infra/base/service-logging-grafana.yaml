@@ -43,6 +43,41 @@ spec:
               basicAuth: false
               version: 1
               apiVersion: 1
+              jsonData:
+                httpMethod: GET
+                tracesToLogs:
+                  datasourceUid: 'loki'
+                  tags: ['job', 'instance', 'pod', 'namespace', 'ApplicationName']
+                  mappedTags: [{ key: 'service.name', value: 'service' }]
+                  mapTagNamesEnabled: false
+                  spanStartTimeShift: '1h'
+                  spanEndTimeShift: '1h'
+                  filterByTraceID: false
+                  filterBySpanID: false
+                tracesToMetrics:
+                  datasourceUid: 'prometheus'
+                  tags: [{ key: 'service.name', value: 'service' }, { key: 'job' }]
+                  queries:
+                    - name: 'Sample query'
+                      query: 'sum(rate(tempo_spanmetrics_latency_bucket{$__tags}[5m]))'
+                serviceMap:
+                  datasourceUid: 'prometheus'
+                search:
+                  hide: false
+                nodeGraph:
+                  enabled: true
+                lokiSearch:
+                  datasourceUid: 'loki'
+            - access: proxy
+              editable: false
+              isDefault: false
+              uid: prometheus
+              jsonData:
+                httpMethod: GET
+              name: Prometheus
+              orgId: 1
+              type: prometheus
+              url: http://rancher-monitoring-prometheus.cattle-monitoring-system.svc.cluster.local:9090
       parameters:
         - name: env.GF_AUTH_ANONYMOUS_ENABLED
           value: 'true'
@@ -51,7 +86,7 @@ spec:
         - name: env.GF_AUTH_DISABLE_LOGIN_FORM
           value: 'true'
         - name: env.GF_FEATURE_TOGGLES_ENABLE
-          value: 'tempoSearch tempoBackendSearch'
+          value: 'tempoSearch tempoBackendSearch tempoApmTable'
   project: default
   syncPolicy:
     syncOptions:
