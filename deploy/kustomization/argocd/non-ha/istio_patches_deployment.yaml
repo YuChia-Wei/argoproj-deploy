@@ -6,14 +6,14 @@ metadata:
     app.kubernetes.io/name: argocd-applicationset-controller
     app.kubernetes.io/part-of: argocd-applicationset
     app: argocd-applicationset-controller
-    version: v2.5.1
+    version: v2.6.1
   name: argocd-applicationset-controller
 spec:
   template:
     metadata:
       labels:
         app: argocd-applicationset-controller
-        version: v2.5.1
+        version: v2.6.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -23,7 +23,7 @@ metadata:
     app.kubernetes.io/name: argocd-dex-server
     app.kubernetes.io/part-of: argocd
     app: argocd-dex-server
-    version: v2.35.3-distroless
+    version: v2.35.3
   name: argocd-dex-server
 spec:
   revisionHistoryLimit: 3
@@ -31,7 +31,7 @@ spec:
     metadata:
       labels:
         app: argocd-dex-server
-        version: v2.35.3-distroless
+        version: v2.35.3
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,7 +44,7 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
         app: argocd-notifications-controller
-        version: v2.5.1
+        version: v2.6.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -54,7 +54,7 @@ metadata:
     app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/part-of: argocd
     app: argocd-redis
-    version: v7.0.5-alpine
+    version: v7.0.7-alpine
   name: argocd-redis
 spec:
   revisionHistoryLimit: 3
@@ -62,7 +62,7 @@ spec:
     metadata:
       labels:
         app: argocd-redis
-        version: v7.0.5-alpine
+        version: v7.0.7-alpine
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -72,7 +72,7 @@ metadata:
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/part-of: argocd
     app: argocd-repo-server
-    version: v2.5.1
+    version: v2.6.1
   name: argocd-repo-server
 spec:
   revisionHistoryLimit: 3
@@ -80,7 +80,7 @@ spec:
     metadata:
       labels:
         app: argocd-repo-server
-        version: v2.5.1
+        version: v2.6.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -90,7 +90,7 @@ metadata:
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
     app: argocd-server
-    version: v2.5.1
+    version: v2.6.1
   name: argocd-server
 spec:
   revisionHistoryLimit: 3
@@ -98,7 +98,7 @@ spec:
     metadata:
       labels:
         app: argocd-server
-        version: v2.5.1
+        version: v2.6.1
     spec:
       containers:
       - name: argocd-server
