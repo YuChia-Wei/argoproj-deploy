@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: prometheus
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: observability
+  source:
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 15.10.4
+    helm:
+      releaseName: prometheus
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: alertmanager.enabled
+          value: 'false'
+        - name: server.persistentVolume.enabled
+          value: 'false'
+        - name: alertmanager.persistentVolume.enabled
+          value: 'false'
+        - name: server.global.scrape_interval
+          value: 15s
+        - name: nodeExporter.service.hostPort
+          value: '11005'
+        - name: nodeExporter.service.servicePort
+          value: '11005'
+    chart: prometheus
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas

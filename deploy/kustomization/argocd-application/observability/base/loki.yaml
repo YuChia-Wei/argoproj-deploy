@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: loki
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: observability
+  source:
+    repoURL: 'https://grafana.github.io/helm-charts'
+    targetRevision: 4.6.0
+    chart: loki
+    helm:
+      releaseName: loki
+      valueFiles:
+        - values.yaml
+      parameters:
+        # - name: global.dnsService
+        #   value: rke2-coredns-rke2-coredns
+        - name: 'loki.auth_enabled'
+          value: 'false'
+        - name: loki.limits_config.max_query_series
+          value: '2000'
+        - name: loki.query_scheduler.max_outstanding_requests_per_tenant
+          value: '2000'
+        - name: loki.server.http_server_read_timeout
+          value: 1m
+        - name: write.persistence.size
+          value: 2Gi
+        - name: read.persistence.size
+          value: 2Gi
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+  revisionHistoryLimit: 3

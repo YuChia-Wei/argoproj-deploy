@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
+  - ../system-settings
   - install-ha.yaml
   - VirtualService.yaml
   - Gateway.yaml
-  - system-settings/
 patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml
