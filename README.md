@@ -1,5 +1,9 @@
 # Argo 相關系統的 kustomization 安裝設定檔
 
+## 此套件包倚賴
+
+- istio
+
 ## ArgoCD
 
 參考以下三個連結
@@ -12,16 +16,15 @@
 此定義檔主要增加 Kubernetes 的 Label 設定 (app, version)，讓 Istio 可正常存取
 為了方便以後的更新，有特別將各種不同類型的 patch 設定檔切割出來
 
-### 安裝檔更新
+## 安裝檔更新
 
 1. download install yaml (option)
     * 指定版本
         ```bash=
-         curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml -o install-2.3.4.yaml
-        ```
-    * 最新版本
-        ```bash=
-         curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -o install-latest.yaml
+        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.1/manifests/install.yaml -o install.yaml
+        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.1/manifests/ha/install.yaml -o install-ha.yaml
+        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.4.0/install.yaml -o install.yaml
+        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.4.0/dashboard-install.yaml -o dashboard-install.yaml
         ```
 1. 建立 namespace
     * 純建立
@@ -39,7 +42,7 @@
         kubectl label namespace argocd istio.io/rev=1-13-3
         ```
 
-### When Upgrade
+## When Upgrade
 
 * 升級後不會更新設定檔，因此原始的密碼與設定都相同
 * 可以先用以下命令檢查差異 (cmd 位置要先到 argocd kustomiztion 的位置)
@@ -55,13 +58,13 @@
 
     ```
 
-### Install
+## Install
 
 ```
 kubectl apply -k ./
 ```
 
-### link to prometheus
+## link to prometheus
 
 從 Argo-Rollout 的經驗來看，應該要設定在 deployment 上面，但是不知道什麼原因，測試時使用了設定到 service 的方法才成功
 
