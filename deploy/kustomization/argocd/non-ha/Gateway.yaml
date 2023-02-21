@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   selector:
-    istio: argocd-ingressgateway
+    istio: ingressgateway
   servers:
     - hosts:
         - argocd.mydomain.org
