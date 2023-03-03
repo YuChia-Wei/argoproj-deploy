@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/destination/name
+  value: 'Production'
+# - op: replace
+#   path: /spec/project
+#   value: 'cluster-infra'

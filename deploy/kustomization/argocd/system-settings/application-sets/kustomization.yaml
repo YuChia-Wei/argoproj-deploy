@@ -6,4 +6,5 @@ resources:
   - appset-cache-apps.yaml
   - appset-elastic-system-apps.yaml
   - appset-keda-apps.yaml
+  - appset-lab-apps.yaml
   - appset-observability-apps.yaml
