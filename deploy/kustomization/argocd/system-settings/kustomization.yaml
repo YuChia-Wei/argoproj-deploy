@@ -7,3 +7,4 @@ resources:
   # - clusters/
   - projects/
   - repos/
+  - argocd-namespace.yaml
