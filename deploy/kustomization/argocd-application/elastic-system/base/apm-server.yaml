@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: apm-server
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: elastic-system
+  source:
+    repoURL: 'https://github.com/YuChia-Wei/k8s-resource-manifests'
+    path: elastic-system/apm-server/
+    targetRevision: master
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  # ignoreDifferences:
+  #   - group: apps
+  #     kind: Deployment
+  #     jsonPointers:
+  #       - /spec/replicas
+  revisionHistoryLimit: 3

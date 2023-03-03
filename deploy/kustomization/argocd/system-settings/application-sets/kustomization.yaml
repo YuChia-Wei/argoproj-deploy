@@ -4,5 +4,6 @@ namespace: argocd
 resources:
   - appset-argo-rollouts-apps.yaml
   - appset-cache-apps.yaml
+  - appset-elastic-system-apps.yaml
   - appset-keda-apps.yaml
   - appset-observability-apps.yaml

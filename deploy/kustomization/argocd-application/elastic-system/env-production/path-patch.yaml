@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: elastic-agent
+spec:
+  source:
+    path: elastic-system/elastic-agent/env-production
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: fleet-server
+spec:
+  source:
+    path: elastic-system/fleet-server/env-production
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: elasticsearch
+spec:
+  source:
+    path: elastic-system/elasticsearch/env-production
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: kibana
+spec:
+  source:
+    path: elastic-system/kibana/env-production
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   labels:
+#     type: cluster-infra
+#   namespace: argocd
+#   name: apm-server
+# spec:
+#   source:
+#     path: elastic-system/apm-server/env-production
