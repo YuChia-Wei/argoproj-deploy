@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: argocd-application-controller
     app.kubernetes.io/part-of: argocd
     app: argocd-application-controller
-    version: v2.6.1
+    version: v2.7.1
   name: argocd-application-controller
 spec:
   revisionHistoryLimit: 3
@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: argocd-application-controller
-        version: v2.6.1
+        version: v2.7.1
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -25,11 +25,11 @@ metadata:
     app.kubernetes.io/name: argocd-redis-ha
     app.kubernetes.io/part-of: argocd
     app: argocd-redis-ha-server
-    version: v7.0.7-alpine
+    version: v7.0.11-alpine
   name: argocd-redis-ha-server
 spec:
   template:
     metadata:
       labels:
         app: argocd-redis-ha
-        version: v7.0.7-alpine
+        version: v7.0.11-alpine

@@ -1,8 +1,17 @@
-# Argo 相關系統的 kustomization 安裝設定檔
+# Argo Project install kustomization
 
-## 此套件包倚賴
+⚠️️⚠️This file is too old! It will be updated in the future.⚠️️⚠️
+
+## Cluster Requested
 
 - istio
+
+## package version
+
+| package name  | version | update date |
+|---------------|---------|-------------|
+| argocd        | 2.7.1   | 2023-05-06  |
+| argo-rollouts | 1.4.1   | 2023-05-06  |
 
 ## ArgoCD
 

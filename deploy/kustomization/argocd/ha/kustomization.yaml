@@ -5,6 +5,8 @@ resources:
   - core-app/
   - ../system-settings
   - install-ha.yaml
+  # or use this (ref https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/#kustomize)
+  # - github.com/argoproj/argo-cd/manifests/ha?ref=v2.6.2
   - VirtualService.yaml
   - Gateway.yaml
 patchesStrategicMerge:

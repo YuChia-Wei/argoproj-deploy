@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/component: controller
+    app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/part-of: argocd-applicationset
+    app.kubernetes.io/part-of: argocd
     app: argocd-applicationset-controller
-    version: v2.6.1
+    version: v2.7.1
   name: argocd-applicationset-controller
 spec:
   template:
     metadata:
       labels:
         app: argocd-applicationset-controller
-        version: v2.6.1
+        version: v2.7.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -23,7 +23,7 @@ metadata:
     app.kubernetes.io/name: argocd-dex-server
     app.kubernetes.io/part-of: argocd
     app: argocd-dex-server
-    version: v2.35.3
+    version: v2.36.0
   name: argocd-dex-server
 spec:
   revisionHistoryLimit: 3
@@ -31,7 +31,7 @@ spec:
     metadata:
       labels:
         app: argocd-dex-server
-        version: v2.35.3
+        version: v2.36.0
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,7 +44,7 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
         app: argocd-notifications-controller
-        version: v2.6.1
+        version: v2.7.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -54,7 +54,7 @@ metadata:
     app.kubernetes.io/name: argocd-redis-ha-haproxy
     app.kubernetes.io/part-of: argocd
     app: argocd-redis-ha-haproxy
-    version: v2.6.2-alpine
+    version: v2.7.12-alpine
   name: argocd-redis-ha-haproxy
 spec:
   revisionHistoryLimit: 3
@@ -62,7 +62,7 @@ spec:
     metadata:
       labels:
         app: argocd-redis-ha-haproxy
-        version: v2.6.2-alpine
+        version: v2.7.12-alpine
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -72,7 +72,7 @@ metadata:
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/part-of: argocd
     app: argocd-repo-server
-    version: v2.6.1
+    version: v2.7.1
   name: argocd-repo-server
 spec:
   revisionHistoryLimit: 3
@@ -80,7 +80,7 @@ spec:
     metadata:
       labels:
         app: argocd-repo-server
-        version: v2.6.1
+        version: v2.7.1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -90,7 +90,7 @@ metadata:
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
     app: argocd-server
-    version: v2.6.1
+    version: v2.7.1
   name: argocd-server
 spec:
   revisionHistoryLimit: 3
@@ -98,14 +98,9 @@ spec:
     metadata:
       labels:
         app: argocd-server
-        version: v2.6.1
+        version: v2.7.1
     spec:
       containers:
       - name: argocd-server
         command:
-        - argocd-server
-        - --redis
-        - argocd-redis-ha-haproxy:6379
-        - --staticassets
-        - /shared/app
         - --insecure
