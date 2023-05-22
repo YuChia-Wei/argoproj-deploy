@@ -1,6 +1,6 @@
 # Argo Project install kustomization
 
-⚠️️⚠️This file is too old! It will be updated in the future.⚠️️⚠️
+⚠️️⚠️This `readme` file is too old! It will be updated in the future.⚠️️⚠️
 
 ## Cluster Requested
 
