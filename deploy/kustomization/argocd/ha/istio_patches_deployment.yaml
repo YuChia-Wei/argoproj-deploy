@@ -99,8 +99,3 @@ spec:
       labels:
         app: argocd-server
         version: v2.7.1
-    spec:
-      containers:
-      - name: argocd-server
-        command:
-        - --insecure
