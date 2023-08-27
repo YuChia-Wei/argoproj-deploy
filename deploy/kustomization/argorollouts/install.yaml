@@ -179,6 +179,8 @@ spec:
                           type: object
                         datadog:
                           properties:
+                            apiVersion:
+                              type: string
                             interval:
                               type: string
                             query:
@@ -231,6 +233,51 @@ spec:
                                 parallelism:
                                   format: int32
                                   type: integer
+                                podFailurePolicy:
+                                  properties:
+                                    rules:
+                                      items:
+                                        properties:
+                                          action:
+                                            type: string
+                                          onExitCodes:
+                                            properties:
+                                              containerName:
+                                                type: string
+                                              operator:
+                                                type: string
+                                              values:
+                                                items:
+                                                  format: int32
+                                                  type: integer
+                                                type: array
+                                                x-kubernetes-list-type: set
+                                            required:
+                                            - operator
+                                            - values
+                                            type: object
+                                          onPodConditions:
+                                            items:
+                                              properties:
+                                                status:
+                                                  type: string
+                                                type:
+                                                  type: string
+                                              required:
+                                              - status
+                                              - type
+                                              type: object
+                                            type: array
+                                            x-kubernetes-list-type: atomic
+                                        required:
+                                        - action
+                                        - onPodConditions
+                                        type: object
+                                      type: array
+                                      x-kubernetes-list-type: atomic
+                                  required:
+                                  - rules
+                                  type: object
                                 selector:
                                   properties:
                                     matchExpressions:
@@ -1823,6 +1870,8 @@ spec:
                                           type: boolean
                                         hostPID:
                                           type: boolean
+                                        hostUsers:
+                                          type: boolean
                                         hostname:
                                           type: string
                                         imagePullSecrets:
@@ -2570,12 +2619,21 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                              matchLabelKeys:
+                                                items:
+                                                  type: string
+                                                type: array
+                                                x-kubernetes-list-type: atomic
                                               maxSkew:
                                                 format: int32
                                                 type: integer
                                               minDomains:
                                                 format: int32
                                                 type: integer
+                                              nodeAffinityPolicy:
+                                                type: string
+                                              nodeTaintsPolicy:
+                                                type: string
                                               topologyKey:
                                                 type: string
                                               whenUnsatisfiable:
@@ -2701,9 +2759,21 @@ spec:
                           required:
                           - query
                           type: object
+                        plugin:
+                          type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         prometheus:
                           properties:
                             address:
+                              type: string
+                            query:
+                              type: string
+                          type: object
+                        skywalking:
+                          properties:
+                            address:
+                              type: string
+                            interval:
                               type: string
                             query:
                               type: string
@@ -3056,6 +3126,8 @@ spec:
                           type: object
                         datadog:
                           properties:
+                            apiVersion:
+                              type: string
                             interval:
                               type: string
                             query:
@@ -3108,6 +3180,51 @@ spec:
                                 parallelism:
                                   format: int32
                                   type: integer
+                                podFailurePolicy:
+                                  properties:
+                                    rules:
+                                      items:
+                                        properties:
+                                          action:
+                                            type: string
+                                          onExitCodes:
+                                            properties:
+                                              containerName:
+                                                type: string
+                                              operator:
+                                                type: string
+                                              values:
+                                                items:
+                                                  format: int32
+                                                  type: integer
+                                                type: array
+                                                x-kubernetes-list-type: set
+                                            required:
+                                            - operator
+                                            - values
+                                            type: object
+                                          onPodConditions:
+                                            items:
+                                              properties:
+                                                status:
+                                                  type: string
+                                                type:
+                                                  type: string
+                                              required:
+                                              - status
+                                              - type
+                                              type: object
+                                            type: array
+                                            x-kubernetes-list-type: atomic
+                                        required:
+                                        - action
+                                        - onPodConditions
+                                        type: object
+                                      type: array
+                                      x-kubernetes-list-type: atomic
+                                  required:
+                                  - rules
+                                  type: object
                                 selector:
                                   properties:
                                     matchExpressions:
@@ -4700,6 +4817,8 @@ spec:
                                           type: boolean
                                         hostPID:
                                           type: boolean
+                                        hostUsers:
+                                          type: boolean
                                         hostname:
                                           type: string
                                         imagePullSecrets:
@@ -5447,12 +5566,21 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                              matchLabelKeys:
+                                                items:
+                                                  type: string
+                                                type: array
+                                                x-kubernetes-list-type: atomic
                                               maxSkew:
                                                 format: int32
                                                 type: integer
                                               minDomains:
                                                 format: int32
                                                 type: integer
+                                              nodeAffinityPolicy:
+                                                type: string
+                                              nodeTaintsPolicy:
+                                                type: string
                                               topologyKey:
                                                 type: string
                                               whenUnsatisfiable:
@@ -5578,9 +5706,21 @@ spec:
                           required:
                           - query
                           type: object
+                        plugin:
+                          type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         prometheus:
                           properties:
                             address:
+                              type: string
+                            query:
+                              type: string
+                          type: object
+                        skywalking:
+                          properties:
+                            address:
+                              type: string
+                            interval:
                               type: string
                             query:
                               type: string
@@ -5819,6 +5959,8 @@ spec:
                           type: object
                         datadog:
                           properties:
+                            apiVersion:
+                              type: string
                             interval:
                               type: string
                             query:
@@ -5871,6 +6013,51 @@ spec:
                                 parallelism:
                                   format: int32
                                   type: integer
+                                podFailurePolicy:
+                                  properties:
+                                    rules:
+                                      items:
+                                        properties:
+                                          action:
+                                            type: string
+                                          onExitCodes:
+                                            properties:
+                                              containerName:
+                                                type: string
+                                              operator:
+                                                type: string
+                                              values:
+                                                items:
+                                                  format: int32
+                                                  type: integer
+                                                type: array
+                                                x-kubernetes-list-type: set
+                                            required:
+                                            - operator
+                                            - values
+                                            type: object
+                                          onPodConditions:
+                                            items:
+                                              properties:
+                                                status:
+                                                  type: string
+                                                type:
+                                                  type: string
+                                              required:
+                                              - status
+                                              - type
+                                              type: object
+                                            type: array
+                                            x-kubernetes-list-type: atomic
+                                        required:
+                                        - action
+                                        - onPodConditions
+                                        type: object
+                                      type: array
+                                      x-kubernetes-list-type: atomic
+                                  required:
+                                  - rules
+                                  type: object
                                 selector:
                                   properties:
                                     matchExpressions:
@@ -7463,6 +7650,8 @@ spec:
                                           type: boolean
                                         hostPID:
                                           type: boolean
+                                        hostUsers:
+                                          type: boolean
                                         hostname:
                                           type: string
                                         imagePullSecrets:
@@ -8210,12 +8399,21 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                              matchLabelKeys:
+                                                items:
+                                                  type: string
+                                                type: array
+                                                x-kubernetes-list-type: atomic
                                               maxSkew:
                                                 format: int32
                                                 type: integer
                                               minDomains:
                                                 format: int32
                                                 type: integer
+                                              nodeAffinityPolicy:
+                                                type: string
+                                              nodeTaintsPolicy:
+                                                type: string
                                               topologyKey:
                                                 type: string
                                               whenUnsatisfiable:
@@ -8341,9 +8539,21 @@ spec:
                           required:
                           - query
                           type: object
+                        plugin:
+                          type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         prometheus:
                           properties:
                             address:
+                              type: string
+                            query:
+                              type: string
+                          type: object
+                        skywalking:
+                          properties:
+                            address:
+                              type: string
+                            interval:
                               type: string
                             query:
                               type: string
@@ -8557,6 +8767,9 @@ spec:
                           type: object
                       type: object
                     service:
+                      properties:
+                        name:
+                          type: string
                       type: object
                     template:
                       properties:
@@ -10125,6 +10338,8 @@ spec:
                               type: boolean
                             hostPID:
                               type: boolean
+                            hostUsers:
+                              type: boolean
                             hostname:
                               type: string
                             imagePullSecrets:
@@ -10872,12 +11087,21 @@ spec:
                                           type: string
                                         type: object
                                     type: object
+                                  matchLabelKeys:
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
                                   maxSkew:
                                     format: int32
                                     type: integer
                                   minDomains:
                                     format: int32
                                     type: integer
+                                  nodeAffinityPolicy:
+                                    type: string
+                                  nodeTaintsPolicy:
+                                    type: string
                                   topologyKey:
                                     type: string
                                   whenUnsatisfiable:
@@ -11580,6 +11804,11 @@ spec:
                                               type: string
                                             type: object
                                         type: object
+                                      service:
+                                        properties:
+                                          name:
+                                            type: string
+                                        type: object
                                       specRef:
                                         type: string
                                       weight:
@@ -11869,9 +12098,14 @@ spec:
                                 type: string
                               stableIngress:
                                 type: string
-                            required:
-                            - stableIngress
+                              stableIngresses:
+                                items:
+                                  type: string
+                                type: array
                             type: object
+                          plugins:
+                            type: object
+                            x-kubernetes-preserve-unknown-fields: true
                           smi:
                             properties:
                               rootService:
@@ -13456,6 +13690,8 @@ spec:
                         type: boolean
                       hostPID:
                         type: boolean
+                      hostUsers:
+                        type: boolean
                       hostname:
                         type: string
                       imagePullSecrets:
@@ -14203,12 +14439,21 @@ spec:
                                     type: string
                                   type: object
                               type: object
+                            matchLabelKeys:
+                              items:
+                                type: string
+                              type: array
+                              x-kubernetes-list-type: atomic
                             maxSkew:
                               format: int32
                               type: integer
                             minDomains:
                               format: int32
                               type: integer
+                            nodeAffinityPolicy:
+                              type: string
+                            nodeTaintsPolicy:
+                              type: string
                             topologyKey:
                               type: string
                             whenUnsatisfiable:
@@ -14257,6 +14502,8 @@ spec:
                     properties:
                       arn:
                         type: string
+                      fullName:
+                        type: string
                       name:
                         type: string
                     required:
@@ -14267,6 +14514,8 @@ spec:
                     properties:
                       arn:
                         type: string
+                      fullName:
+                        type: string
                       name:
                         type: string
                     required:
@@ -14276,6 +14525,8 @@ spec:
                   stableTargetGroup:
                     properties:
                       arn:
+                        type: string
+                      fullName:
                         type: string
                       name:
                         type: string
@@ -14821,6 +15072,15 @@ subjects:
   namespace: argo-rollouts
 ---
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/component: rollouts-controller
+    app.kubernetes.io/name: argo-rollouts
+    app.kubernetes.io/part-of: argo-rollouts
+  name: argo-rollouts-config
+---
+apiVersion: v1
 kind: Secret
 metadata:
   name: argo-rollouts-notification-secret
@@ -14863,7 +15123,7 @@ spec:
         app.kubernetes.io/name: argo-rollouts
     spec:
       containers:
-      - image: quay.io/argoproj/argo-rollouts:v1.4.1
+      - image: quay.io/argoproj/argo-rollouts:v1.5.1
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
