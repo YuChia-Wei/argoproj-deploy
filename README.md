@@ -1,7 +1,5 @@
 # Argo Project install kustomization
 
-⚠️️⚠️This `readme` file is too old! It will be updated in the future.⚠️️⚠️
-
 ## Cluster Requested
 
 - istio
@@ -10,8 +8,8 @@
 
 | package name  | version | update date |
 |---------------|---------|-------------|
-| argocd        | 2.7.1   | 2023-05-06  |
-| argo-rollouts | 1.4.1   | 2023-05-06  |
+| argocd        | 2.8.2   | 2023-10-10  |
+| argo-rollouts | 1.5.1   | 2023-05-06  |
 
 ## ArgoCD
 
@@ -21,7 +19,6 @@
 * [官方 issues](https://github.com/argoproj/argo-cd/issues/2784)
 * [第三方的主要 GitRepo](https://github.com/epacke/argo-istio)
 
-設定檔中也包含了 `--insecure` 執行參數，以便使用 http 連線
 此定義檔主要增加 Kubernetes 的 Label 設定 (app, version)，讓 Istio 可正常存取
 為了方便以後的更新，有特別將各種不同類型的 patch 設定檔切割出來
 
@@ -30,10 +27,10 @@
 1. download install yaml (option)
     * 指定版本
         ```bash=
-        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.1/manifests/install.yaml -o install.yaml
-        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.1/manifests/ha/install.yaml -o install-ha.yaml
-        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.4.0/install.yaml -o install.yaml
-        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.4.0/dashboard-install.yaml -o dashboard-install.yaml
+        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.2/manifests/install.yaml -o install.yaml
+        curl -sSL https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.2/manifests/ha/install.yaml -o install-ha.yaml
+        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.5.1/install.yaml -o install.yaml
+        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.5.1/dashboard-install.yaml -o dashboard-install.yaml
         ```
 1. 建立 namespace
     * 純建立
