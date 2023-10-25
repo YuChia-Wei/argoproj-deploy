@@ -1,5 +1,9 @@
 # Argo Project install kustomization
 
+## CICD Pipeline
+
+![](./CI-CD%20Pipeline.jpg)
+
 ## Cluster Requested
 
 - istio
