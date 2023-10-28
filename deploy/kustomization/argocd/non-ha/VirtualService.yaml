@@ -8,6 +8,10 @@ spec:
     - argocd-gateway
   hosts:
     - argocd.mydomain.org
+    - host.k3d.internal
+    - host.docker.internal
+    - gateway.docker.internal
+    - kubernetes.docker.internal
   http:
     - headers:
         request:

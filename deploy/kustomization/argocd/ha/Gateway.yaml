@@ -9,6 +9,10 @@ spec:
   servers:
     - hosts:
         - argocd.mydomain.org
+        - host.k3d.internal
+        - host.docker.internal
+        - gateway.docker.internal
+        - kubernetes.docker.internal
       port:
         name: http
         number: 80
