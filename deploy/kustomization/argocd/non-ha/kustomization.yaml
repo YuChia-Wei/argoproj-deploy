@@ -11,3 +11,4 @@ patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml
   - istio_patches_statefulset.yaml
+  - patches_configmap.yaml
