@@ -3,12 +3,11 @@ kind: Kustomization
 namespace: argocd
 resources:
   - core-app/
-  - ../system-settings
+  - ../argocd-system-settings
+  - ../internal-cluster-settings
   - install-ha.yaml
   # or use this (ref https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/#kustomize)
   # - github.com/argoproj/argo-cd/manifests/ha?ref=v2.6.2
-  - VirtualService.yaml
-  - Gateway.yaml
 patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml

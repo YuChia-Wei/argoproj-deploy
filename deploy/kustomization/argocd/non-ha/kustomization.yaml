@@ -3,10 +3,9 @@ kind: Kustomization
 namespace: argocd
 resources:
   - core-app/
-  - ../system-settings
+  - ../argocd-system-settings
+  - ../internal-cluster-settings
   - install.yaml
-  - VirtualService.yaml
-  - Gateway.yaml
 patchesStrategicMerge:
   - istio_patches_service.yaml
   - istio_patches_deployment.yaml
