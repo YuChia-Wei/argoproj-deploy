@@ -6,6 +6,9 @@ resources:
   - appset-cache-apps.yaml
   - appset-cert-manager.yaml
   - appset-elastic-system-apps.yaml
+  - appset-grafana-apps.yaml
   - appset-keda-apps.yaml
   - appset-lab-apps.yaml
-  - appset-observability-apps.yaml
+  - appset-open-telemetry-apps.yaml
+  - appset-prometheus-apps.yaml
+  - appset-rabbitmq-apps.yaml

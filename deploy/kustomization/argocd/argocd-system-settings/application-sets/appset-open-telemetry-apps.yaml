@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-open-telemetry-apps
+spec:
+  generators:
+  - list:
+      elements:
+      - env: inner-cluster
+      # - env: production
+      # - env: stage
+      # - env: test
+  template:
+    metadata:
+      labels:
+        type: argocd-core
+      namespace: argocd
+      name: 'apps-open-telemetry-{{env}}'
+    spec:
+      destination:
+        name: 'in-cluster'
+        namespace: argocd
+      source:
+        path: 'deploy/kustomization/argocd-application/open-telemetry/env-{{env}}'
+        repoURL: >-
+          https://github.com/YuChia-Wei/argoproj-deploy
+        targetRevision: main
+      project: default

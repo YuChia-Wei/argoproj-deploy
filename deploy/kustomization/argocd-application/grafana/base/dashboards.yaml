@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  namespace: argocd
+  name: grafana-lab
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: grafana-lab
+  source:
+    repoURL: 'https://github.com/YuChia-Wei/k8s-resource-manifests'
+    path: grafana-lab/dashboards/
+    targetRevision: master
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  # ignoreDifferences:
+  #   - group: apps
+  #     kind: Deployment
+  #     jsonPointers:
+  #       - /spec/replicas
+  revisionHistoryLimit: 3

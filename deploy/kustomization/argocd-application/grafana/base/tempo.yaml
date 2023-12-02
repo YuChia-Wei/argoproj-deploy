@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name: 'in-cluster'
-    namespace: observability
+    namespace: grafana-lab
   source:
     repoURL: 'https://grafana.github.io/helm-charts'
     targetRevision: 0.27.10
@@ -37,7 +37,7 @@ spec:
         - name: metaMonitoring.grafanaAgent.installOperator
           value: 'true'
         - name: metaMonitoring.grafanaAgent.logs.remote.url
-          value: 'http://loki.observability.svc.cluster.local:3100/loki/api/v1/push'
+          value: 'http://loki.grafana-lab.svc.cluster.local:3100/loki/api/v1/push'
   project: default
   syncPolicy:
     syncOptions:

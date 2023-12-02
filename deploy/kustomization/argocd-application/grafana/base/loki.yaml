@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name: 'in-cluster'
-    namespace: observability
+    namespace: grafana-lab
   source:
     repoURL: 'https://grafana.github.io/helm-charts'
     targetRevision: 4.6.0
