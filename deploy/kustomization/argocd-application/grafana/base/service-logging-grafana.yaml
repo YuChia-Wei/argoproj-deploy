@@ -77,7 +77,7 @@ spec:
               name: Prometheus
               orgId: 1
               type: prometheus
-              url: http://prometheus-server.grafana-lab.svc.cluster.local:9090
+              url: http://prometheus-server.prometheus.svc.cluster.local:9090
               #url: http://rancher-monitoring-prometheus.cattle-monitoring-system.svc.cluster.local:9090
       parameters:
         - name: env.GF_AUTH_ANONYMOUS_ENABLED
