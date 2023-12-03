@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-rollouts-dashboard
+    app.kubernetes.io/component: argo-rollouts-dashboard
+    app.kubernetes.io/name: argo-rollouts-dashboard
+    app.kubernetes.io/part-of: argo-rollouts
+    version: v1.6.2
+  name: argo-rollouts-dashboard
+spec:
+  template:
+    metadata:
+      labels:
+        app: argo-rollouts-dashboard
+        app.kubernetes.io/name: argo-rollouts-dashboard
+        version: v1.6.2

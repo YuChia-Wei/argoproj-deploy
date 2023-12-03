@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-rollouts
+    app.kubernetes.io/component: rollouts-controller
+    app.kubernetes.io/name: argo-rollouts
+    app.kubernetes.io/part-of: argo-rollouts
+    version: v1.6.2
+  name: argo-rollouts
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/port: '8090'
+        prometheus.io/scrape: 'true'
+      labels:
+        app: argo-rollouts
+        version: v1.6.2

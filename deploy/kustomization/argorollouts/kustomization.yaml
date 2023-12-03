@@ -6,5 +6,6 @@ resources:
 - install.yaml
 - dashboard-install.yaml
 patches:
-- path: istio_patches_service.yaml
-- path: istio_patches_deployment.yaml
+- path: istio-patches/deployment_argo-rollouts-dashboard.yaml
+- path: istio-patches/deployment_argo-rollouts.yaml
+- path: istio-patches/service_argo-rollouts-metrics.yaml
