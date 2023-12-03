@@ -31,10 +31,10 @@
 1. download install yaml (option)
     * 指定版本
         ```bash=
-        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.5.1/install.yaml -o install.yaml
-        curl -sSL https://github.com/argoproj/argo-rollouts/releases/download/v1.5.1/dashboard-install.yaml -o dashboard-install.yaml
         curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.3/manifests/install.yaml -o install.yaml
         curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.3/manifests/ha/install.yaml -o install-ha.yaml
+        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.6.2/install.yaml -o install.yaml
+        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.6.2/dashboard-install.yaml -o dashboard-install.yaml
         ```
 1. 建立 namespace
     * 純建立
