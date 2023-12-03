@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/name: argocd-applicationset-controller
     app.kubernetes.io/part-of: argocd
-    version: v2.8.2
+    version: v2.9.3
   name: argocd-applicationset-controller
 spec:
   template:
     metadata:
       labels:
         app: argocd-applicationset-controller
-        version: v2.8.2
+        version: v2.9.3
