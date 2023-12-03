@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  name: kibana
+  namespace: argocd
+spec:
+  source:
+    path: elastic-system/kibana/env-inner-cluster

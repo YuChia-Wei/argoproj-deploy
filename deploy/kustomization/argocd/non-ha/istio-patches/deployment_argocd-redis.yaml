@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argocd-redis
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/name: argocd-redis
+    app.kubernetes.io/part-of: argocd
+    version: v7.0.11-alpine
+  name: argocd-redis
+spec:
+  revisionHistoryLimit: 3
+  template:
+    metadata:
+      labels:
+        app: argocd-redis
+        version: v7.0.11-alpine

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argocd-repo-server
+    app.kubernetes.io/component: repo-server
+    app.kubernetes.io/name: argocd-repo-server
+    app.kubernetes.io/part-of: argocd
+    version: v2.8.2
+  name: argocd-repo-server
+spec:
+  revisionHistoryLimit: 3
+  template:
+    metadata:
+      labels:
+        app: argocd-repo-server
+        version: v2.8.2

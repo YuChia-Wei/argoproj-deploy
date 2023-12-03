@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  name: elasticsearch
+  namespace: argocd
+spec:
+  source:
+    path: elastic-system/elasticsearch/env-inner-cluster

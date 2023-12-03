@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: argocd-redis-ha-server
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/name: argocd-redis-ha
+    app.kubernetes.io/part-of: argocd
+    version: v7.0.11-alpine
+  name: argocd-redis-ha-server
+spec:
+  template:
+    metadata:
+      labels:
+        app: argocd-redis-ha
+        version: v7.0.11-alpine

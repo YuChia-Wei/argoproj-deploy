@@ -2,12 +2,24 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
-  - core-app/
-  - ../argocd-system-settings
-  - ../internal-cluster-settings
-  - install.yaml
-patchesStrategicMerge:
-  - istio_patches_service.yaml
-  - istio_patches_deployment.yaml
-  - istio_patches_statefulset.yaml
-  - patches_configmap.yaml
+- ../base
+- core-app/
+- install.yaml
+  # or use this (ref https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/#kustomize)
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.3/manifests/install.yaml
+patches:
+- path: patches_configmap.yaml
+- path: istio-patches/deployment_argocd-applicationset-controller.yaml
+- path: istio-patches/deployment_argocd-dex-server.yaml
+- path: istio-patches/deployment_argocd-notifications-controller.yaml
+- path: istio-patches/deployment_argocd-redis.yaml
+- path: istio-patches/deployment_argocd-repo-server.yaml
+- path: istio-patches/deployment_argocd-server.yaml
+- path: istio-patches/service_argocd-applicationset-controller.yaml
+- path: istio-patches/service_argocd-dex-server.yaml
+- path: istio-patches/service_argocd-metrics.yaml
+- path: istio-patches/service_argocd-notifications-controller-metrics.yaml
+- path: istio-patches/service_argocd-repo-server.yaml
+- path: istio-patches/service_argocd-server-metrics.yaml
+- path: istio-patches/service_argocd-server.yaml
+- path: istio-patches/statefulset_argocd-application-controller.yaml

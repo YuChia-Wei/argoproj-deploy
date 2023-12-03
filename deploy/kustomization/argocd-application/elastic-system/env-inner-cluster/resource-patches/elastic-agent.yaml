@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: cluster-infra
+  name: elastic-agent
+  namespace: argocd
+spec:
+  source:
+    path: elastic-system/elastic-agent/env-inner-cluster
