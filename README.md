@@ -12,8 +12,8 @@
 
 | package name  | version | update date |
 |---------------|---------|-------------|
-| argocd        | 2.8.2   | 2023-10-10  |
-| argo-rollouts | 1.5.1   | 2023-05-06  |
+| argocd        | 2.9.3   | 2023-12-03  |
+| argo-rollouts | 1.6.2   | 2023-12-03  |
 
 ## ArgoCD
 
