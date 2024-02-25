@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
     - hosts:
-        - argocd.mydomain.org
+        - argocd.local.vm
         - host.k3d.internal
         - host.docker.internal
         - gateway.docker.internal

@@ -7,7 +7,7 @@ spec:
   gateways:
     - argocd-gateway
   hosts:
-    - argocd.mydomain.org
+    - argocd.local.vm
     - host.k3d.internal
     - host.docker.internal
     - gateway.docker.internal

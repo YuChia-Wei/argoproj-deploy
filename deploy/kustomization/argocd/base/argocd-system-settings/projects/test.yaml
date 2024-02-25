@@ -11,6 +11,6 @@ spec:
   destinations:
     - name: Test
       namespace: '*'
-      server: https://rancher.mydomain.org/k8s/clusters/{cluster-id}
+      server: https://rancher.local.vm/k8s/clusters/{cluster-id}
   sourceRepos:
     - '*'
