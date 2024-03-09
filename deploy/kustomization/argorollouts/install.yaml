@@ -15464,7 +15464,7 @@ spec:
         app.kubernetes.io/name: argo-rollouts
     spec:
       containers:
-      - image: quay.io/argoproj/argo-rollouts:v1.6.2
+      - image: quay.io/argoproj/argo-rollouts:v1.6.6
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3

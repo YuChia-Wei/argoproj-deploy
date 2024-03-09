@@ -6,7 +6,7 @@ resources:
 - core-app/
 - install.yaml
   # or use this (ref https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/#kustomize)
-  # - https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.3/manifests/install.yaml
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.2/manifests/install.yaml
 patches:
 - path: patches_configmap.yaml
 - path: istio-patches/deployment_argocd-applicationset-controller.yaml

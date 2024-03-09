@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/name: argocd-notifications-controller
     app.kubernetes.io/part-of: argocd
-    version: v2.9.3
+    version: v2.10.2
   name: argocd-notifications-controller
 spec:
   revisionHistoryLimit: 3
@@ -15,4 +15,4 @@ spec:
       labels:
         app: argocd-notifications-controller
         app.kubernetes.io/name: argocd-notifications-controller
-        version: v2.9.3
+        version: v2.10.2
