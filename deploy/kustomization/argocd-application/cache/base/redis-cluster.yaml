@@ -11,7 +11,7 @@ spec:
     namespace: cache
   source:
     repoURL: 'https://ot-container-kit.github.io/helm-charts/'
-    targetRevision: 0.12.2
+    targetRevision: 0.15.11
     chart: redis-cluster
     helm:
       releaseName: redis-cluster
