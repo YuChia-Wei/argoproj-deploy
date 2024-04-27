@@ -1,5 +1,7 @@
 # Argo Project install kustomization
 
+**argocd 商標圖示來自於 [官方 github](https://github.com/argoproj/argo-cd/blob/master/docs/assets/argo.png)**
+
 ## CICD Pipeline
 
 ![](./CI-CD%20Pipeline.jpg)
