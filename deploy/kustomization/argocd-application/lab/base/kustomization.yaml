@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: argocd
 resources:
   - dotnet-webapi-lab.yaml
+  - yarp-api-gateway-lab.yaml

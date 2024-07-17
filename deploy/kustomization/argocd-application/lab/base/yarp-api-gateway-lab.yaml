@@ -1,0 +1,32 @@
+#this is memo
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    type: api-gateway
+  namespace: argocd
+  name: yarp-api-gateway-lab
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: lab
+  source:
+    path: charts/yarp-gateway
+    repoURL: 'https://github.com/YuChia-Wei/yarp-controller'
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+  revisionHistoryLimit: 3
