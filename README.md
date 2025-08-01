@@ -2,6 +2,20 @@
 
 **argocd 商標圖示來自於 [官方 github](https://github.com/argoproj/argo-cd/blob/master/docs/assets/argo.png)**
 
+:::warning
+由於我這只是我測試 k8s / argocd 與相關服務使用的一個設定，因此在更新版本時都是不考慮 argocd 版本更換時的各種 api 遷移問題，我通常都是直接重新安裝 argocd。如果有遷移需求的話，這一份 repo 僅供參考。
+:::
+
+## repo 說明
+
+本 repo 可用於快速安裝 argocd 至 k8s 中，並且進行自我管理，以便未來的版本更新。
+
+這份 repo 中所提供的 kustomization patch 資料室為了替 argocd 的所有資源加上以下兩個 metadata
+- app
+- version
+
+這兩個 metadata 主要是提供給早期版本的 istio 中所附帶的 kiali, Prometheus 等服務繪製網路流量圖使用，後續是否需要使用這兩個資訊用於流量管理則是要看組織是否有相關需求，這邊我依循我自己早期建立的規則，會持續保留相關標籤的建立。
+
 ## CICD Pipeline
 
 ![](./CI-CD%20Pipeline.jpg)
@@ -14,10 +28,10 @@
 
 | package name  | version | update date |
 |---------------|---------|-------------|
-| argocd        | 2.10.2  | 2024-03-09  |
-| argo-rollouts | 1.6.6   | 2024-03-09  |
+| argocd        | 3.0.12  | 2025-08-01  |
+| argo-rollouts | 1.8.3   | 2025-08-01  |
 
-## ArgoCD
+## ArgoCD Patch For Istio
 
 參考以下三個連結
 
@@ -28,15 +42,21 @@
 此定義檔主要增加 Kubernetes 的 Label 設定 (app, version)，讓 Istio 可正常存取
 為了方便以後的更新，有特別將各種不同類型的 patch 設定檔切割出來
 
+### 官方說明
+
+目前 (2025/08/01 - v3.0.12) 版本可以看到官方說明文件上已有 istio 相關的 ingress 設定說明
+
+[argocd - ingress configuration](https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#istio)
+
 ## 安裝檔更新
 
 1. download install yaml (option)
     * 指定版本
         ```bash=
-        curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.2/manifests/install.yaml -o install.yaml
-        curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.2/manifests/ha/install.yaml -o install-ha.yaml
-        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.6.6/install.yaml -o install.yaml
-        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.6.6/dashboard-install.yaml -o dashboard-install.yaml
+        curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v3.0.12/manifests/install.yaml -o install.yaml
+        curl -sSLk https://raw.githubusercontent.com/argoproj/argo-cd/v3.0.12/manifests/ha/install.yaml -o install-ha.yaml
+        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.8.3/install.yaml -o install.yaml
+        curl -sSLk https://github.com/argoproj/argo-rollouts/releases/download/v1.8.3/dashboard-install.yaml -o dashboard-install.yaml
         ```
 1. 建立 namespace
     * 純建立

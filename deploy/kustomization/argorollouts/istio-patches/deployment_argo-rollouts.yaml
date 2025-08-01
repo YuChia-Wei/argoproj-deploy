@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/component: rollouts-controller
     app.kubernetes.io/name: argo-rollouts
     app.kubernetes.io/part-of: argo-rollouts
-    version: v1.6.6
+    version: v1.8.3
   name: argo-rollouts
 spec:
   template:
@@ -17,4 +17,4 @@ spec:
         prometheus.io/scrape: 'true'
       labels:
         app: argo-rollouts
-        version: v1.6.6
+        version: v1.8.3

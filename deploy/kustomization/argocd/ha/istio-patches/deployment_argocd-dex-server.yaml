@@ -6,7 +6,10 @@ metadata:
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/name: argocd-dex-server
     app.kubernetes.io/part-of: argocd
-    version: v2.37.0
+    # 這邊的版本改與 argocd 官方 helm 慣用規則相同，統一使用 argocd 的版本號
+    version: v3.0.12
+    # dex-server version
+    # version: v2.41.1
   name: argocd-dex-server
 spec:
   revisionHistoryLimit: 3
@@ -14,4 +17,7 @@ spec:
     metadata:
       labels:
         app: argocd-dex-server
-        version: v2.37.0
+        # 這邊的版本改與 argocd 官方 helm 慣用規則相同，統一使用 argocd 的版本號
+        version: v3.0.12
+        # dex-server version
+        # version: v2.41.1

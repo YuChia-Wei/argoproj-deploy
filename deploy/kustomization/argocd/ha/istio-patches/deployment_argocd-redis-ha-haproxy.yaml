@@ -6,7 +6,10 @@ metadata:
     app.kubernetes.io/component: redis
     app.kubernetes.io/name: argocd-redis-ha-haproxy
     app.kubernetes.io/part-of: argocd
-    version: 2.6.14-alpine
+    # 這邊的版本改與 argocd 官方 helm 慣用規則相同，統一使用 argocd 的版本號
+    version: v3.0.12
+    # haproxy version
+    # version: 3.0.8-alpine
   name: argocd-redis-ha-haproxy
 spec:
   revisionHistoryLimit: 3
@@ -14,4 +17,7 @@ spec:
     metadata:
       labels:
         app: argocd-redis-ha-haproxy
-        version: 2.6.14-alpine
+        # 這邊的版本改與 argocd 官方 helm 慣用規則相同，統一使用 argocd 的版本號
+        version: v3.0.12
+        # haproxy version
+        # version: 3.0.8-alpine

@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
-    version: v2.10.2
+    version: v3.0.12
   name: argocd-server
 spec:
   revisionHistoryLimit: 3
@@ -14,4 +14,4 @@ spec:
     metadata:
       labels:
         app: argocd-server
-        version: v2.10.2
+        version: v3.0.12
